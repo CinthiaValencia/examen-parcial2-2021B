@@ -7,7 +7,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class ItemsManager extends WorldObjectsManager 
+public class ItemsManager extends WorldObjectsManager
 {
     private Random random = new Random();
 
@@ -18,6 +18,7 @@ public class ItemsManager extends WorldObjectsManager
     public Actor getNewWorldObject(){
 
         int randomOption = random.nextInt(4);
+
 
         switch(randomOption){
             case 0:
@@ -30,5 +31,9 @@ public class ItemsManager extends WorldObjectsManager
                 return new Bomb(this);
         }
 
+    }
+
+    public void itemEaten(){
+        enableNewItemCounter = true;
     }
 }

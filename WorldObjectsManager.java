@@ -4,18 +4,18 @@ public abstract class WorldObjectsManager implements ItemObserver
 {
     private final int initialDelay;
     private int delayNewObject;
-    private boolean enableNewItemCounter;
-    
+    boolean enableNewItemCounter;
+
     private World world;
     private int worldHeight;
-    
+
     public WorldObjectsManager(World world, int initialDelay){
         this.world = world;
         this.initialDelay = initialDelay;
         this.delayNewObject = initialDelay;
         enableNewItemCounter = true;
     }
-    
+
     public void addObject(){
         if(!enableNewItemCounter){
             return;
@@ -32,12 +32,18 @@ public abstract class WorldObjectsManager implements ItemObserver
 
             delayNewObject = initialDelay;
             enableNewItemCounter = false;
-        }    
+        }
     }
-    
-    public abstract void itemEaten(){
-        enableNewItemCounter = true;
+
+    public abstract void itemEaten();
+
+    public abstract Actor getNewWorldObject();
+
+    public boolean getEnableNewItemCounter(){
+        return enableNewItemCounter;
     }
-    
-    public  Actor getNewWorldObject();
+
+
+
+
 }

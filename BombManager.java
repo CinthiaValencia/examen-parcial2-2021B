@@ -1,6 +1,6 @@
 import greenfoot.*;
 
-public class BombManager extends WorldObjectsManager 
+public class BombManager extends WorldObjectsManager
 {
 
     public BombManager(World world){
@@ -9,5 +9,9 @@ public class BombManager extends WorldObjectsManager
 
     public Actor getNewWorldObject(){
         return new Bomb(this);
+    }
+
+    public void itemEaten(){
+        enableNewItemCounter = true;
     }
 }
